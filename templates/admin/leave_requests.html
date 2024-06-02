@@ -1,0 +1,23 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+      <h3>Leave requests</h3>
+      <table class="table m-5">
+            <tr>
+                  <th class="col">Username</th>
+                  <th class="col">Date</th>
+                  <th class="col">Message</th>
+                  <th class="col">Status</th>
+                  <th class="col" cla>View</th>
+            </tr>
+            {% for request in requests %}
+            <tr>
+                  <th>{{request.user.username}}</th>
+                  <th>{{request.date}}</th>
+                  <th>{{request.message}}</th>
+                  <th>{{request.status}}</th>
+                  <th><a href="{% url 'view_leave_request_admin' request.id %}">VIEW</a></th>
+            </tr>
+            {% endfor %}
+      </table>
+{% endblock %}

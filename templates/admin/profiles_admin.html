@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+      <h3>EMPLOYEES</h3>
+      <table class="table m-3">
+            <tr>
+                  <th scope='col'>ID</th>
+                  <th scope='col'>NAME</th>
+                  <th scope='col'>PHOTO</th>
+                  <th scope='col'>GENDER</th>
+                  <th scope='col'>AGE</th>
+                  <th scope='col'>ADDRESS</th>
+                  <th scope='col'>PHONE</th>
+                  <th scope='col'>EMAIL</th>
+                  <th scope='col'>DEPARTMENT</th>
+                  <th scope='col'>JOINING DATE</th>
+                  <th scope='col'>STARTING SALARY</th>
+                  <th scope='col'>CURRENT SALARY</th>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                  <th scope="row">{{employee.employee_id}}</th>
+                  <th>fullname</th>
+                  <th><img src="{{employee.profile_photo.url}}" width="100px"></th>
+                  <th>{{employee.gender}}</th>
+                  <th>{{employee.age}}</th>
+                  <th>{{employee.address}}</th>
+                  <th>{{employee.phone}}</th>
+                  <th>{{employee.email}}</th>
+                  <th>{{employee.department.title}}</th>
+                  <th>{{employee.joining_date}}</th>
+                  <th>{{employee.starting_salary}}</th>
+                  <th>{{employee.current_salary}}</th>
+            </tr>
+            {% endfor %}
+      </table>
+{% endblock %}

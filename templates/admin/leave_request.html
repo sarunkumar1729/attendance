@@ -1,0 +1,14 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+      <div class="m-5 p-5 border">
+      <img src="{{profile.profile_photo.url}}" width="150px" class="img img-fluid" alt="">
+      <h3>Leave request</h3>
+      <h4>DATE : {{leave_request.date}}</h4>
+      <h4>MESSAGE : {{leave_request.message}}</h4>
+      <h4>EMPLOYEE ID : {{profile.employee_id}}</h4>
+      <h4>EMPLOYEE NAME : {{profile.user.first_name}} {{profile.user.last_name}}</h4>
+      <a class="btn btn-danger" href="{% url 'approve' %}">APPROVE</a>
+      <a class="btn btn-success" href="{% url 'reject' %}">REJECT</a>
+      </div>
+{% endblock %}

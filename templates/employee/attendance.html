@@ -1,0 +1,17 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+      <h1>Your attendance</h1>
+      <table class="table">
+            <tr>
+                  <th class="col">date</th>
+                  <th class="col">status</th>
+            </tr>
+            {% for att in attendance %}
+            <tr>
+                  <th>{{att.date}}</th>
+                  <th>{{att.status}}</th>
+            </tr>
+            {% endfor %}
+      </table>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+      <a href="{% url 'user_profile' %}">VIEW PROFILE</a>
+      <a href="{% url 'employee_attendance' %}">VIEW ATTENDANCE</a>
+      <a href="{% url 'leave_employee' %}">LEAVE APPLICATION</a>
+      <a href="{% url 'logout' %}">LOGOUT</a>
+      <h1>EMPLOYEE HOME</h1>
+{% endblock %}

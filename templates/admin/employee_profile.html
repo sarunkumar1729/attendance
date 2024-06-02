@@ -1,0 +1,80 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<h3>UPDATE EMPLOYEE PROFILE</h3>
+<div class="m-5">
+      <form action="{% url 'employee_profile_update' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+            <div class="col-md-6 p-2">
+            <div class="form-group">
+              <label for="exampleInputEmail1">SELECT USER</label>
+              <select name="user" class="form-control w-50">
+                  {% for user in users %}
+                        <option class="form-control w-50" value="{{user}}">{{user.username}}</option>
+                  {% endfor %}
+                  </select>            
+            </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">SELECT DEPARTMENT</label>
+                  <select name="department" class="form-control w-50">
+                        {% for department in departments %}
+                              <option class="form-control w-50" value="{{department.id}}">{{department.title}}</option>
+                        {% endfor %}  
+                  </select>
+            </div>            
+            <div class="form-group">
+                  <label for="exampleInputEmail1">EMPLOYEE ID</label>
+                  <input type="number" name="emp_id" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </div>            
+            <div class="form-group">
+                  <label for="exampleInputEmail1">PROFILE PHOTO</label>
+                  <input type="file" name="profile_photo" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </div>            
+            <div class="form-group">
+                  <label for="exampleInputEmail1">GENDER</label>
+                  <label for="exampleInputEmail1">MALE</label>
+                  <input type="radio" name="gender" value="male"  id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  <label for="exampleInputEmail1">FEMALE</label>
+                  <input type="radio" name="gender" value="female"  id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">AGE</label>
+                  <input type="number" name="age" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </div> 
+            </div>
+            <div class="col-md-6 p-2">  
+                  <div class="form-group">
+                        <label for="exampleInputEmail1">ADDRESS</label>
+                        <input type="number" name="address" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  </div>   
+                  <div class="form-group">
+                        <label for="exampleInputEmail1">PHONE</label>
+                        <input type="number" name="phone" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  </div>   
+                  <div class="form-group">
+                        <label for="exampleInputEmail1">MAIL ID</label>
+                        <input type="number" name="email" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  </div>  
+                  <div class="form-group">
+                        <label for="exampleInputEmail1">JOINING DATE</label>
+                        <input type="date" name="joining_date" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  </div> 
+                  <div class="form-group">
+                        <label for="exampleInputEmail1">STARTING SALARY</label>
+                        <input type="number" name="starting_salary" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  </div>   
+                  <div class="form-group">
+                        <label for="exampleInputEmail1">CURRENT SALARY</label>
+                        <input type="number" name="current_salary" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  </div> 
+
+                  <button type="submit" class="btn btn-warning w-50 mt-2">SAVE</button>
+ 
+            </div>
+
+            </div>
+  
+      </form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+
+      <div class="row">
+            <div class="col-md-6 p-5">
+                  <h3>Apply for leave</h3>
+                  <form action="{% url 'leave_employee' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                              <label for="">DATE : </label>
+                              <input class="form-control" type="date" name="date">
+                        </div>
+                        <br>
+                        <div class="form-control">
+                              <label for="">MESSAGE : </label>
+                              <textarea class="form-control"  id="" cols="30" rows="10" name="message"></textarea>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-warning w-100">SEND</button>
+                  </form>  
+            </div>   
+            <div class="col-md-6 p-5">
+                  <h3>Previous applications</h3>
+                  <table class="table">
+                        <tr>
+                              <th class="col">DATE</th>
+                              <th class="col">MESSAGE</th>
+                              <th class="col">STATUS</th>
+                        </tr>
+                        {% for leave in leave_requests %}
+                        <tr>
+                              <td>{{leave.date}}</td>
+                              <td>{{leave.message}}</td>
+                              <td>{{leave.status}}</td>
+                        </tr>
+                        {% endfor %}
+                  </table>
+            </div>     
+      </div>
+{% endblock %}

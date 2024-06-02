@@ -1,0 +1,46 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+      <div class="w-50 mx-auto bg-light text-dark mt-3 p-5">
+      <h3>Your profile</h3>
+      <img src="{{profile.profile_photo.url}}" alt="" class="img img-fluid" height="150px">
+      <table class="table">
+            <tr>
+                  <th class="col">EMPLOYEE ID</th>
+                  <th class="col">{{profile.employee_id}}</th>
+            </tr>
+            <tr>
+                  <th class="col">NAME</th>
+                  <th class="col">{{profile.user.firstname}} {{profile.user.lastname}}</th>
+            </tr>            <tr>
+                  <th class="col">GENDER</th>
+                  <th class="col">{{profile.gender}}</th>
+            </tr>            <tr>
+                  <th class="col">AGE</th>
+                  <th class="col">{{profile.age}}</th>
+            </tr>            <tr>
+                  <th class="col">ADDRESS</th>
+                  <th class="col">{{profile.address}}</th>
+            </tr>            <tr>
+                  <th class="col">PHONE</th>
+                  <th class="col">{{profile.phone}}</th>
+            </tr>            <tr>
+                  <th class="col">EMAIL</th>
+                  <th class="col">{{profile.email}}</th>
+            </tr>            <tr>
+                  <th class="col">DEPARTMENT</th>
+                  <th class="col">{{profile.department.title}}</th>
+            </tr>            <tr>
+                  <th class="col">JOINING DATE</th>
+                  <th class="col">{{profile.joining_date}}</th>
+            </tr>            <tr>
+                  <th class="col">STARTING SALARY</th>
+                  <th class="col">{profile.starting_salary}</th>
+            </tr>            <tr>
+                  <th class="col">CURRENT SALARY</th>
+                  <th class="col">{{profile.current_salary}}</th>
+            </tr>
+      </table>
+      
+      </div>
+{% endblock %}

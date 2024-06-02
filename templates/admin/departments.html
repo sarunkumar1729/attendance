@@ -1,0 +1,31 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+      <div class="row">
+      <div class="col-md-6">
+      <div class="m-5">
+      <h3>DEPARTMENTS</h3>
+      <form action="{% url 'departments' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Create new department</label>
+              <input type="text" name="department" class="form-control w-70" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new department name">
+            </div>
+            <button type="submit" class="btn btn-warning">Submit</button>
+      </form>
+      </div>      
+      </div>
+
+      <div class="col-md-6">
+      <div class="m-5">
+      <h3>DEPARTMENT</h3>
+      {% for department in departments %}
+            <ul class="list-group">
+                  <li class="list-group-item w-70">{{department.title}}</li>
+            </ul>
+      {% endfor %}
+      </div>
+      </div>
+      </div>
+
+{% endblock %}
