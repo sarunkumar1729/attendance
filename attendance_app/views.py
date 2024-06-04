@@ -80,21 +80,36 @@ def employee_profile_update_admin(request):
             joining_date=request.POST['joining_date']
             starting_salary=request.POST['starting_salary']
             current_salary=request.POST['current_salary']
-            new_profile=employee_profile(
-                  user=user,
-                  employee_id=employee_id,
-                  profile_photo=photo,
-                  gender=gender,
-                  age=age,
-                  address=address,
-                  phone=phone,
-                  email=email,
-                  department=emp_department,
-                  joining_date=joining_date,
-                  starting_salary=starting_salary,
-                  current_salary=current_salary
-            )
-            new_profile.save()
+            if not employee_profile.objects.filter(user=user):
+                  new_profile=employee_profile(
+                        user=user,
+                        employee_id=employee_id,
+                        profile_photo=photo,
+                        gender=gender,
+                        age=age,
+                        address=address,
+                        phone=phone,
+                        email=email,
+                        department=emp_department,
+                        joining_date=joining_date,
+                        starting_salary=starting_salary,
+                        current_salary=current_salary
+                  )
+                  new_profile.save()
+            # else:
+            #       new_profile=employee_profile.objects.get(user=user)
+            #       new_profile.employee_id=employee_id
+            #       new_profile.profile_photo=photo,
+            #       new_profile.gender=gender,
+            #       new_profile.age=age,
+            #       new_profile.address=address,
+            #       new_profile.phone=phone,
+            #       new_profile.email=email,
+            #       new_profile.department=emp_department,
+            #       new_profile.joining_date=joining_date,
+            #       new_profile.starting_salary=starting_salary,
+            #       new_profile.current_salary=current_salary
+            #       new_profile.save()
             return render(request,'admin/employee_profile.html')
       else:
             users=User.objects.all()
