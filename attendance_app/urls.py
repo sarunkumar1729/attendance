@@ -19,5 +19,6 @@ urlpatterns=[
       path('attendance_admin',views.attendance_admin,name='attendance_admin'),
       path('date_filter',views.date_filter,name='date_filter'),
       path('filter_attendance_employee',views.filter_attendance_employee,name='filter_attendance_employee'),
-      path('employee_attendance',views.employee_attendance,name='employee_attendance')
+      path('employee_attendance',views.employee_attendance,name='employee_attendance'),
+      path('delete_profile/<int:i>',views.delete_profile,name='delete_profile')
 ]

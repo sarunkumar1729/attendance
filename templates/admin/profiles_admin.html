@@ -16,6 +16,7 @@
                   <th scope='col'>JOINING DATE</th>
                   <th scope='col'>STARTING SALARY</th>
                   <th scope='col'>CURRENT SALARY</th>
+                  <th scope="col"></th>
             </tr>
             {% for employee in employees %}
             <tr>
@@ -31,6 +32,7 @@
                   <th>{{employee.joining_date}}</th>
                   <th>{{employee.starting_salary}}</th>
                   <th>{{employee.current_salary}}</th>
+                  <th><a href="{% url 'delete_profile' employee.id %}" class="btn btn-danger">DELETE</a></th>
             </tr>
             {% endfor %}
       </table>

@@ -8,7 +8,7 @@
             {% csrf_token %}
             <div class="form-group">
             <label for="exampleInputEmail1">SELECT EMPLOYEE</label>
-            <select name="employee" class="form-control w-70" id="">
+            <select name="employee" class="form-control w-70" id="" required>
                   {% for emp in employees %}
                   <option class="form-control w-70" value="{{emp.id}}">{{emp.user.first_name}} {{emp.user.last_name}}</option>
                   {% endfor %}
@@ -17,9 +17,9 @@
             <div class="form-group">
                   <label for="">STATUS</label>
                   <label for="">Present</label>
-                  <input type="radio" name="status" value="present">
+                  <input type="radio" name="status" value="present" required>
                   <label for="">Absent</label>
-                  <input type="radio" name="status" value="absent">
+                  <input type="radio" name="status" value="absent" required>
             </div>
             <button type="submit" class="btn btn-warning">SAVE</button>
       </form>

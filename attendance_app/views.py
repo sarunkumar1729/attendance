@@ -222,3 +222,8 @@ def employee_attendance(request):
       emp=employee_profile.objects.get(user=user)
       your_attendance=attendance.objects.filter(user=emp)
       return render(request,'employee/attendance.html',{'attendance':your_attendance})
+
+def delete_profile(request,i):
+      profile=employee_profile.objects.get(id=i)
+      profile.delete()
+      return redirect('profiles_admin')
