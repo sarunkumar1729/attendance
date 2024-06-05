@@ -21,7 +21,7 @@
             {% for employee in employees %}
             <tr>
                   <th scope="row">{{employee.employee_id}}</th>
-                  <th>fullname</th>
+                  <th>{{employee.user.first_name}} {{employee.user.last_name}}</th>
                   <th><img src="{{employee.profile_photo.url}}" width="100px"></th>
                   <th>{{employee.gender}}</th>
                   <th>{{employee.age}}</th>
