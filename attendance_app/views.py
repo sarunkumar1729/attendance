@@ -40,15 +40,15 @@ def create_user(request):
             first_name = request.POST['first_name']
             last_name = request.POST['last_name']
             email = request.POST['email']
-            user = User.objects.create(
-                  username = username,
-                  password = make_password(password),
-                  first_name = first_name,
-                  last_name = last_name,
-                  email = email
-            )
-            user.save()
-            print("successfully registered")
+            if not User.objects.filter(username=username):
+                  user = User.objects.create(
+                        username = username,
+                        password = make_password(password),
+                        first_name = first_name,
+                        last_name = last_name,
+                        email = email
+                  )
+                  user.save()
             return render(request,'admin/create_employee.html')
       else:
             return render(request,'admin/create_employee.html')
