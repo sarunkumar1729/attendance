@@ -167,10 +167,6 @@ def attendance_admin(request):
       if request.method=='POST':
             emp=request.POST['employee']
             status=request.POST['status']
-            if status==1:
-                  status='present'
-            else:
-                  status='absent'
             emp=employee_profile.objects.get(id=emp)
             if not attendance.objects.filter(user=emp,status=status):
                   new_attendance=attendance(user=emp,status=status)
